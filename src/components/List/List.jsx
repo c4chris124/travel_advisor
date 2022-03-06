@@ -11,22 +11,12 @@ import {
 import useStyles from "./styles";
 import PlaceDetail from "../PlaceDetails/PlaceDetail";
 
-const List = () => {
+const List = ({places}) => {
   const classes = useStyles();
   const [type, setType] = useState("restaurants");
   const [rating, setRating] = useState("");
 
-  const fakePlaces = [
-    { name: "Cool name" },
-    { name: "Cool Beer" },
-    { name: "Cool Steak" },
-    { name: "Cool name" },
-    { name: "Cool Beer" },
-    { name: "Cool Steak" },
-    { name: "Cool name" },
-    { name: "Cool Beer" },
-    { name: "Cool Steak" },
-  ];
+
 
   return (
     <div className={classes.container}>
@@ -51,7 +41,7 @@ const List = () => {
         </Select>
       </FormControl>
       <Grid container spacing={3} className={classes.list}>
-        {fakePlaces?.map((place, i) => (
+        {places?.map((place, i) => (
           <Grid item key={i} xs={12}>
             <PlaceDetail place={place} />
           </Grid>
