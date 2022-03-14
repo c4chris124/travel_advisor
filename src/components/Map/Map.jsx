@@ -5,7 +5,7 @@ import LocationOnOutlined from "@material-ui/icons/LocationOnOutlined";
 import { Rating } from "@material-ui/lab";
 import useStyles from "./styles";
 
-const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }) => {
+const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, weatherData }) => {
   const classes = useStyles();
   const iseDesktop = useMediaQuery("(min-width:600px)");
 
@@ -54,6 +54,11 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }
                 <Rating size="small" value={Number(place.rating)} readOnly />
               </Paper>
             )}
+          </div>
+        ))}
+        {weatherData?.list?.map((data, i) => (
+          <div key={i} lat={data.coord.lat} lng={data.coord.lon}>
+            
           </div>
         ))}
       </GoogleMapReact>
